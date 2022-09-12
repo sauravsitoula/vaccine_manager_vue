@@ -40,22 +40,14 @@ export default {
       },
       async addVaccine(vaccine) {
         console.log('vaccine to add ==== ' + JSON.stringify(vaccine))
-      // const res = await fetch('http://localhost:1337/vaccine', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-type': 'application/json',
-      //     'bearer'
-      //   },
-      //   body: JSON.stringify(vaccine),
-      // })
-      axios.defaults.headers.common['Authorization'] = localStorage.getItem('authToken');
-      console.log( "THE AUTH TOKEN  " + axios.defaults.headers.common['Authorization'])
-      const res= await axios.post('vaccine', JSON.stringify(vaccine), {
-      headers: {
-        "Content-Type": 'application/json'
-       }})
-       
-      this.vaccines = [...this.vaccines, res.data]
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('authToken');
+        console.log( "THE AUTH TOKEN  " + axios.defaults.headers.common['Authorization'])
+        const res= await axios.post('vaccine', JSON.stringify(vaccine), {
+        headers: {
+          "Content-Type": 'application/json'
+        }})
+        
+        this.vaccines = [...this.vaccines, res.data]
     },
       toggleAddVaccine() {
         this.showAddVaccine = !this.showAddVaccine;
@@ -77,9 +69,8 @@ export default {
        
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('authToken');
         const res= await axios.get('vaccine');
-      // const res = await fetch("http://localhost:1337/vaccine")
-        // console.log('RES IS' )
-      const data = res.data;
+
+        const data = res.data;
       
 
       return data

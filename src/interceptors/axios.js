@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:1337/';
+axios.defaults.baseURL = 'https://vaccine-management-server.herokuapp.com/';
 
 let refresh = false;
 
